@@ -1,0 +1,42 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default_mysql
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: root
+
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default_mysql
+  database: magic_novel
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  collation: utf8_general_ci # utf-8 有的服务器可能出现的问题
+  reconnect: false
+  database: ordering_ik
+  pool: 5
+  username: ikcrm
+  password: ikcrm123
+  host: 10.163.96.66
+  # 数据库的编码
+  #encoding: utf8mb4
+  #collation: utf8mb4_unicode_ci
