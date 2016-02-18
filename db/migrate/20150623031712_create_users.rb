@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, index: true
       t.string :phone, index: true
       t.string :name
-      t.string :authentication_token
+      t.string :authentication_token, index: true
       t.string :password_digest
       t.datetime :activated
       t.boolean :admin, default: false

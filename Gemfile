@@ -39,6 +39,10 @@ gem 'rack-mini-profiler'
 gem 'request_store'
 # 软删除
 gem 'paranoia', '~> 2.1.0'
+# serializers
+gem 'active_model_serializers'
+# rails param
+gem 'rails_param'
 
 group :development do
   gem 'pry-rails'

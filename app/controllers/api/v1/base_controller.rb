@@ -1,9 +1,13 @@
 class Api::V1::BaseController < ActionController::API
+  include Api::IkDeviceDetectable
+  include Api::IkParamsProcessable
+  include Api::IkAuthenticateable
+  include Api::IkRescueable
+
+  helper_method :current_user
+  before_action :authenticate!
 
   protected
-  def authenticate!
-    raise "您的登录已经过期，请重新登录！" unless current_user
-  end
 
   def set_default_page_params
     params[:page] ||= 1

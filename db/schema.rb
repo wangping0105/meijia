@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150623031712) do
     t.datetime "updated_at",                                       null: false
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["phone"], name: "index_users_on_phone", using: :btree
 
