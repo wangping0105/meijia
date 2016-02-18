@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   def generate_authentication_token
     loop do
-      self.authentication_token = SecureRandom.base64(64)
+      self.authentication_token = User.encrypt(User.new_authentication_token)
       break if !User.find_by(authentication_token: authentication_token)
     end
   end
@@ -67,7 +67,5 @@ class User < ActiveRecord::Base
   private
   def create_authentication_token
     self.authentication_token = User.encrypt(User.new_authentication_token)
-    #self.avatar_url = TEAVHER_URL
-    #self.status = 0
   end
 end
