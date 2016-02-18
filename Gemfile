@@ -4,6 +4,7 @@ source 'https://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
+gem 'rails-api'
 # Use mysql2 as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -36,6 +37,8 @@ gem 'alidayu_sms'
 gem 'rack-mini-profiler'
 #
 gem 'request_store'
+# 软删除
+gem 'paranoia', '~> 2.1.0'
 
 group :development do
   gem 'pry-rails'
